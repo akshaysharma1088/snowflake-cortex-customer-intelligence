@@ -72,7 +72,21 @@ The live v3 dashboard shows **200 synthetic cases, 200 stored predictions, a per
 
 **Dashboard Python source:** [`streamlit_resolution_v3.py`](streamlit_resolution_v3.py)
 
-**Screenshots:** The actual Snowsight captures are being packaged for the `docs/images/` folder. See [screenshot publishing checklist](docs/screenshot-publishing.md) for the exact two filenames and their intended placements. Do not substitute the earlier eight-case screenshot for this v3 benchmark.
+**Actual Snowsight screenshots:** Two captures from the live **200-case v3** Streamlit dashboard are prepared for upload to `docs/images/`. The code block below is intentionally commented until the PNGs are committed to this PR, preventing broken images on the public README. See [screenshot publishing instructions](docs/screenshot-publishing.md).
+
+<!-- Publish the two original PNGs in this PR before uncommenting this block.
+### 200-case dashboard overview
+
+![Live Snowflake Cortex 200-case resolution benchmark dashboard](docs/images/streamlit-resolution-v3-overview.png)
+
+*Figure 1. Streamlit running in Snowflake with 200 synthetic cases, per-class outcomes, and a four-state confusion matrix. The observed 200/200 reference-label agreement is on templated synthetic examples, not production accuracy.*
+
+### Case-level exploration
+
+![Live Snowflake Cortex case explorer showing stored predictions](docs/images/streamlit-resolution-v3-case-explorer.png)
+
+*Figure 2. The actual Streamlit case explorer with product and domain filters, customer messages, raw stored model responses, reference labels, and Cortex predictions.*
+-->
 
 ## Run it yourself in Snowflake
 
