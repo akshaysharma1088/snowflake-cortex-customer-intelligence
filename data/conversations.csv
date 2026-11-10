@@ -1,0 +1,91 @@
+conversation_id,created_at,channel,product,transcript,gold_sentiment,gold_issue,gold_unresolved
+CCI-0001,2026-10-01 09:00:00,chat,Account Portal,"Customer: I cannot sign in to Account Portal. Error AUTH-403 keeps showing, and the issue is still open. Agent: Thank you for sharing these details. Customer: Please keep me updated.",negative,login_access,TRUE
+CCI-0002,2026-10-01 17:00:00,case,Mobile App,Thanks! The team reset my access to Mobile App and I can log in now.,positive,login_access,FALSE
+CCI-0003,2026-10-02 01:00:00,email,Billing Hub,The invoice in Billing Hub has a duplicate charge. I have asked twice and it is not resolved.,negative,billing,TRUE
+CCI-0004,2026-10-02 09:00:00,chat,Analytics Studio,Can you tell me where I can download invoices from Analytics Studio?,neutral,billing,FALSE
+CCI-0005,2026-10-02 17:00:00,case,Data Sync,Data Sync takes over a minute to load. Performance is still terrible after the update.,negative,performance,TRUE
+CCI-0006,2026-10-03 01:00:00,email,Account Portal,The Account Portal dashboard is much faster after your fix. It is working well now.,positive,performance,FALSE
+CCI-0007,2026-10-03 09:00:00,chat,Mobile App,Our integration from Mobile App keeps failing with ERR-502. Please escalate; no fix yet.,negative,integration,TRUE
+CCI-0008,2026-10-03 17:00:00,case,Billing Hub,The API connection to Billing Hub was repaired. Thank you for helping.,positive,integration,FALSE
+CCI-0009,2026-10-04 01:00:00,email,Analytics Studio,"I appreciate the quick response about Analytics Studio, but the instructions were confusing. The issue is resolved.",mixed,other,FALSE
+CCI-0010,2026-10-04 09:00:00,chat,Data Sync,What is the recommended way to configure notifications in Data Sync?,neutral,other,FALSE
+CCI-0011,2026-10-04 17:00:00,case,Account Portal,"Thanks for looking into my Account Portal billing ticket, but the credit has not appeared yet.",mixed,billing,TRUE
+CCI-0012,2026-10-05 01:00:00,email,Mobile App,"Customer: The agent was polite about my Mobile App sign-in issue, though I still cannot access my account. Agent: Thank you for sharing these details. Customer: Please keep me updated.",mixed,login_access,TRUE
+CCI-0013,2026-10-05 09:00:00,chat,Billing Hub,I would like a guide for monitoring query latency in Billing Hub.,neutral,performance,FALSE
+CCI-0014,2026-10-05 17:00:00,case,Analytics Studio,"Excellent support on Analytics Studio. Everything is resolved, thank you.",positive,other,FALSE
+CCI-0015,2026-10-06 01:00:00,email,Data Sync,"The Data Sync webhook has been failing all day, and nobody has confirmed a resolution.",negative,integration,TRUE
+CCI-0016,2026-10-06 09:00:00,chat,Account Portal,"I cannot sign in to Account Portal. Error AUTH-403 keeps showing, and the issue is still open.",negative,login_access,TRUE
+CCI-0017,2026-10-06 17:00:00,case,Mobile App,Thanks! The team reset my access to Mobile App and I can log in now.,positive,login_access,FALSE
+CCI-0018,2026-10-07 01:00:00,email,Billing Hub,The invoice in Billing Hub has a duplicate charge. I have asked twice and it is not resolved.,negative,billing,TRUE
+CCI-0019,2026-10-07 09:00:00,chat,Analytics Studio,Can you tell me where I can download invoices from Analytics Studio?,neutral,billing,FALSE
+CCI-0020,2026-10-07 17:00:00,case,Data Sync,Data Sync takes over a minute to load. Performance is still terrible after the update.,negative,performance,TRUE
+CCI-0021,2026-10-08 01:00:00,email,Account Portal,The Account Portal dashboard is much faster after your fix. It is working well now.,positive,performance,FALSE
+CCI-0022,2026-10-08 09:00:00,chat,Mobile App,Our integration from Mobile App keeps failing with ERR-502. Please escalate; no fix yet.,negative,integration,TRUE
+CCI-0023,2026-10-08 17:00:00,case,Billing Hub,Customer: The API connection to Billing Hub was repaired. Thank you for helping. Agent: Thank you for sharing these details. Customer: Please keep me updated.,positive,integration,FALSE
+CCI-0024,2026-10-09 01:00:00,email,Analytics Studio,"I appreciate the quick response about Analytics Studio, but the instructions were confusing. The issue is resolved.",mixed,other,FALSE
+CCI-0025,2026-10-09 09:00:00,chat,Data Sync,What is the recommended way to configure notifications in Data Sync?,neutral,other,FALSE
+CCI-0026,2026-10-09 17:00:00,case,Account Portal,"Thanks for looking into my Account Portal billing ticket, but the credit has not appeared yet.",mixed,billing,TRUE
+CCI-0027,2026-10-10 01:00:00,email,Mobile App,"The agent was polite about my Mobile App sign-in issue, though I still cannot access my account.",mixed,login_access,TRUE
+CCI-0028,2026-10-10 09:00:00,chat,Billing Hub,I would like a guide for monitoring query latency in Billing Hub.,neutral,performance,FALSE
+CCI-0029,2026-10-10 17:00:00,case,Analytics Studio,"Excellent support on Analytics Studio. Everything is resolved, thank you.",positive,other,FALSE
+CCI-0030,2026-10-11 01:00:00,email,Data Sync,"The Data Sync webhook has been failing all day, and nobody has confirmed a resolution.",negative,integration,TRUE
+CCI-0031,2026-10-11 09:00:00,chat,Account Portal,"I cannot sign in to Account Portal. Error AUTH-403 keeps showing, and the issue is still open.",negative,login_access,TRUE
+CCI-0032,2026-10-11 17:00:00,case,Mobile App,Thanks! The team reset my access to Mobile App and I can log in now.,positive,login_access,FALSE
+CCI-0033,2026-10-12 01:00:00,email,Billing Hub,The invoice in Billing Hub has a duplicate charge. I have asked twice and it is not resolved.,negative,billing,TRUE
+CCI-0034,2026-10-12 09:00:00,chat,Analytics Studio,Customer: Can you tell me where I can download invoices from Analytics Studio? Agent: Thank you for sharing these details. Customer: Please keep me updated.,neutral,billing,FALSE
+CCI-0035,2026-10-12 17:00:00,case,Data Sync,Data Sync takes over a minute to load. Performance is still terrible after the update.,negative,performance,TRUE
+CCI-0036,2026-10-13 01:00:00,email,Account Portal,The Account Portal dashboard is much faster after your fix. It is working well now.,positive,performance,FALSE
+CCI-0037,2026-10-13 09:00:00,chat,Mobile App,Our integration from Mobile App keeps failing with ERR-502. Please escalate; no fix yet.,negative,integration,TRUE
+CCI-0038,2026-10-13 17:00:00,case,Billing Hub,The API connection to Billing Hub was repaired. Thank you for helping.,positive,integration,FALSE
+CCI-0039,2026-10-14 01:00:00,email,Analytics Studio,"I appreciate the quick response about Analytics Studio, but the instructions were confusing. The issue is resolved.",mixed,other,FALSE
+CCI-0040,2026-10-14 09:00:00,chat,Data Sync,What is the recommended way to configure notifications in Data Sync?,neutral,other,FALSE
+CCI-0041,2026-10-14 17:00:00,case,Account Portal,"Thanks for looking into my Account Portal billing ticket, but the credit has not appeared yet.",mixed,billing,TRUE
+CCI-0042,2026-10-15 01:00:00,email,Mobile App,"The agent was polite about my Mobile App sign-in issue, though I still cannot access my account.",mixed,login_access,TRUE
+CCI-0043,2026-10-15 09:00:00,chat,Billing Hub,I would like a guide for monitoring query latency in Billing Hub.,neutral,performance,FALSE
+CCI-0044,2026-10-15 17:00:00,case,Analytics Studio,"Excellent support on Analytics Studio. Everything is resolved, thank you.",positive,other,FALSE
+CCI-0045,2026-10-16 01:00:00,email,Data Sync,"Customer: The Data Sync webhook has been failing all day, and nobody has confirmed a resolution. Agent: Thank you for sharing these details. Customer: Please keep me updated.",negative,integration,TRUE
+CCI-0046,2026-10-16 09:00:00,chat,Account Portal,"I cannot sign in to Account Portal. Error AUTH-403 keeps showing, and the issue is still open.",negative,login_access,TRUE
+CCI-0047,2026-10-16 17:00:00,case,Mobile App,Thanks! The team reset my access to Mobile App and I can log in now.,positive,login_access,FALSE
+CCI-0048,2026-10-17 01:00:00,email,Billing Hub,The invoice in Billing Hub has a duplicate charge. I have asked twice and it is not resolved.,negative,billing,TRUE
+CCI-0049,2026-10-17 09:00:00,chat,Analytics Studio,Can you tell me where I can download invoices from Analytics Studio?,neutral,billing,FALSE
+CCI-0050,2026-10-17 17:00:00,case,Data Sync,Data Sync takes over a minute to load. Performance is still terrible after the update.,negative,performance,TRUE
+CCI-0051,2026-10-18 01:00:00,email,Account Portal,The Account Portal dashboard is much faster after your fix. It is working well now.,positive,performance,FALSE
+CCI-0052,2026-10-18 09:00:00,chat,Mobile App,Our integration from Mobile App keeps failing with ERR-502. Please escalate; no fix yet.,negative,integration,TRUE
+CCI-0053,2026-10-18 17:00:00,case,Billing Hub,The API connection to Billing Hub was repaired. Thank you for helping.,positive,integration,FALSE
+CCI-0054,2026-10-19 01:00:00,email,Analytics Studio,"I appreciate the quick response about Analytics Studio, but the instructions were confusing. The issue is resolved.",mixed,other,FALSE
+CCI-0055,2026-10-19 09:00:00,chat,Data Sync,What is the recommended way to configure notifications in Data Sync?,neutral,other,FALSE
+CCI-0056,2026-10-19 17:00:00,case,Account Portal,"Customer: Thanks for looking into my Account Portal billing ticket, but the credit has not appeared yet. Agent: Thank you for sharing these details. Customer: Please keep me updated.",mixed,billing,TRUE
+CCI-0057,2026-10-20 01:00:00,email,Mobile App,"The agent was polite about my Mobile App sign-in issue, though I still cannot access my account.",mixed,login_access,TRUE
+CCI-0058,2026-10-20 09:00:00,chat,Billing Hub,I would like a guide for monitoring query latency in Billing Hub.,neutral,performance,FALSE
+CCI-0059,2026-10-20 17:00:00,case,Analytics Studio,"Excellent support on Analytics Studio. Everything is resolved, thank you.",positive,other,FALSE
+CCI-0060,2026-10-21 01:00:00,email,Data Sync,"The Data Sync webhook has been failing all day, and nobody has confirmed a resolution.",negative,integration,TRUE
+CCI-0061,2026-10-21 09:00:00,chat,Account Portal,"I cannot sign in to Account Portal. Error AUTH-403 keeps showing, and the issue is still open.",negative,login_access,TRUE
+CCI-0062,2026-10-21 17:00:00,case,Mobile App,Thanks! The team reset my access to Mobile App and I can log in now.,positive,login_access,FALSE
+CCI-0063,2026-10-22 01:00:00,email,Billing Hub,The invoice in Billing Hub has a duplicate charge. I have asked twice and it is not resolved.,negative,billing,TRUE
+CCI-0064,2026-10-22 09:00:00,chat,Analytics Studio,Can you tell me where I can download invoices from Analytics Studio?,neutral,billing,FALSE
+CCI-0065,2026-10-22 17:00:00,case,Data Sync,Data Sync takes over a minute to load. Performance is still terrible after the update.,negative,performance,TRUE
+CCI-0066,2026-10-23 01:00:00,email,Account Portal,The Account Portal dashboard is much faster after your fix. It is working well now.,positive,performance,FALSE
+CCI-0067,2026-10-23 09:00:00,chat,Mobile App,Customer: Our integration from Mobile App keeps failing with ERR-502. Please escalate; no fix yet. Agent: Thank you for sharing these details. Customer: Please keep me updated.,negative,integration,TRUE
+CCI-0068,2026-10-23 17:00:00,case,Billing Hub,The API connection to Billing Hub was repaired. Thank you for helping.,positive,integration,FALSE
+CCI-0069,2026-10-24 01:00:00,email,Analytics Studio,"I appreciate the quick response about Analytics Studio, but the instructions were confusing. The issue is resolved.",mixed,other,FALSE
+CCI-0070,2026-10-24 09:00:00,chat,Data Sync,What is the recommended way to configure notifications in Data Sync?,neutral,other,FALSE
+CCI-0071,2026-10-24 17:00:00,case,Account Portal,"Thanks for looking into my Account Portal billing ticket, but the credit has not appeared yet.",mixed,billing,TRUE
+CCI-0072,2026-10-25 01:00:00,email,Mobile App,"The agent was polite about my Mobile App sign-in issue, though I still cannot access my account.",mixed,login_access,TRUE
+CCI-0073,2026-10-25 09:00:00,chat,Billing Hub,I would like a guide for monitoring query latency in Billing Hub.,neutral,performance,FALSE
+CCI-0074,2026-10-25 17:00:00,case,Analytics Studio,"Excellent support on Analytics Studio. Everything is resolved, thank you.",positive,other,FALSE
+CCI-0075,2026-10-26 01:00:00,email,Data Sync,"The Data Sync webhook has been failing all day, and nobody has confirmed a resolution.",negative,integration,TRUE
+CCI-0076,2026-10-26 09:00:00,chat,Account Portal,"I cannot sign in to Account Portal. Error AUTH-403 keeps showing, and the issue is still open.",negative,login_access,TRUE
+CCI-0077,2026-10-26 17:00:00,case,Mobile App,Thanks! The team reset my access to Mobile App and I can log in now.,positive,login_access,FALSE
+CCI-0078,2026-10-27 01:00:00,email,Billing Hub,Customer: The invoice in Billing Hub has a duplicate charge. I have asked twice and it is not resolved. Agent: Thank you for sharing these details. Customer: Please keep me updated.,negative,billing,TRUE
+CCI-0079,2026-10-27 09:00:00,chat,Analytics Studio,Can you tell me where I can download invoices from Analytics Studio?,neutral,billing,FALSE
+CCI-0080,2026-10-27 17:00:00,case,Data Sync,Data Sync takes over a minute to load. Performance is still terrible after the update.,negative,performance,TRUE
+CCI-0081,2026-10-28 01:00:00,email,Account Portal,The Account Portal dashboard is much faster after your fix. It is working well now.,positive,performance,FALSE
+CCI-0082,2026-10-28 09:00:00,chat,Mobile App,Our integration from Mobile App keeps failing with ERR-502. Please escalate; no fix yet.,negative,integration,TRUE
+CCI-0083,2026-10-28 17:00:00,case,Billing Hub,The API connection to Billing Hub was repaired. Thank you for helping.,positive,integration,FALSE
+CCI-0084,2026-10-29 01:00:00,email,Analytics Studio,"I appreciate the quick response about Analytics Studio, but the instructions were confusing. The issue is resolved.",mixed,other,FALSE
+CCI-0085,2026-10-29 09:00:00,chat,Data Sync,What is the recommended way to configure notifications in Data Sync?,neutral,other,FALSE
+CCI-0086,2026-10-29 17:00:00,case,Account Portal,"Thanks for looking into my Account Portal billing ticket, but the credit has not appeared yet.",mixed,billing,TRUE
+CCI-0087,2026-10-30 01:00:00,email,Mobile App,"The agent was polite about my Mobile App sign-in issue, though I still cannot access my account.",mixed,login_access,TRUE
+CCI-0088,2026-10-30 09:00:00,chat,Billing Hub,I would like a guide for monitoring query latency in Billing Hub.,neutral,performance,FALSE
+CCI-0089,2026-10-30 17:00:00,case,Analytics Studio,"Customer: Excellent support on Analytics Studio. Everything is resolved, thank you. Agent: Thank you for sharing these details. Customer: Please keep me updated.",positive,other,FALSE
+CCI-0090,2026-10-31 01:00:00,email,Data Sync,"The Data Sync webhook has been failing all day, and nobody has confirmed a resolution.",negative,integration,TRUE

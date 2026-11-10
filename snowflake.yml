@@ -1,0 +1,11 @@
+definition_version: 2
+entities:
+  cortex_ci_dashboard:
+    type: streamlit
+    identifier: CORTEX_CI_DASHBOARD
+    query_warehouse: CORTEX_CI_WH
+    compute_pool: SYSTEM_COMPUTE_POOL_CPU
+    runtime_name: SYSTEM$ST_CONTAINER_RUNTIME_PY3_11
+    main_file: streamlit_app.py
+    artifacts:
+      - streamlit_app.py
