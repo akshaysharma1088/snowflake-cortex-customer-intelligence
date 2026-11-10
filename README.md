@@ -13,7 +13,7 @@
 
 An open-source reference implementation that classifies **resolution evidence** in support messages using **Snowflake Cortex `AI_CLASSIFY`** and explores the stored outputs in **Streamlit in Snowflake**.
 
-[Explore the 200-case results](data/resolution_v3_observed.csv) · [Run the complete SQL](sql/09_resolution_v3_200_benchmark.sql) · [Open the dashboard source](streamlit_resolution_v3.py) · [Read the technical article](docs/article-beyond-sentiment.md) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24098765)
+[Explore the 200-case results](data/resolution_v3_observed.csv) · [Run the complete SQL](sql/09_resolution_v3_200_benchmark.sql) · [Open the dashboard source](streamlit_resolution_v3.py) · [Read the published DEV article](https://dev.to/akshaysharma10/beyond-sentiment-customer-intelligence-with-snowflake-cortex-ai-and-streamlit-280m) · [Technical article source](docs/article-beyond-sentiment.md) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24098765)
 
 </div>
 
