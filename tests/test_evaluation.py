@@ -1,5 +1,10 @@
 import pytest
-from customer_intelligence.evaluation import metrics, normalize_sentiment, categorize_sentiment_response
+
+from customer_intelligence.evaluation import (
+    categorize_sentiment_response,
+    metrics,
+    normalize_sentiment,
+)
 
 def test_normalize_sentiment():
     assert normalize_sentiment(" Negative ") == "negative"
