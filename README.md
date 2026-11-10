@@ -57,3 +57,14 @@ MIT licensed.
 ## BIRD-inspired behavior-aware extension
 
 The new [BIRD research extension](docs/bird-extension.md) provides a transparent, **illustrative keyword baseline** separating courtesy, dissatisfaction and resolution evidence. It is **not** the trained BIRD-lite model described in the independently submitted manuscript. The synthetic 90-row demo dataset differs from the 90 public-corpus dialogue prefixes in that study, and there are no measured Cortex-vs-BIRD results yet. See `src/customer_intelligence/behavioral.py` and `tests/test_behavioral.py`.
+
+### Comparing predictions after actual execution
+
+After obtaining independently reviewed reference labels and **actual** Cortex inference outputs, create a CSV with columns `case_id,gold_dissatisfaction,rule_prediction,cortex_prediction` and run:
+
+```bash
+python -m pip install -e ".[dev]"
+python scripts/compare_predictions.py your_predictions.csv
+```
+
+The comparison runner reports evaluated counts, coverage and binary precision/recall/F1; a blank Cortex prediction represents an abstention/unavailable result. **Cortex sentiment polarity is not the same variable as expressed dissatisfaction**—do not fill `cortex_prediction` by automatically treating positive sentiment as `no_evidence`. First define and document a separate dissatisfaction classifier or mapping and validate it. There are no precomputed Cortex benchmark results in this repository.
