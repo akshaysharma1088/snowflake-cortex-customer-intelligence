@@ -1,0 +1,9 @@
+conversation_id,transcript,gold_sentiment,gold_issue,gold_unresolved,cortex_sentiment,cortex_issue,cortex_resolution,extracted_product,extracted_feature,extracted_error_code
+SMOKE-001,"Thanks for looking into this, but the fix still does not work. I cannot log in.",mixed,login_access,true,negative,login_access,no,None,None,None
+SMOKE-002,"The duplicate charge is still on my invoice. Please fix it.",negative,billing,true,negative,billing,no,None,None,None
+SMOKE-003,"Thanks! The dashboard now works and the issue is resolved.",positive,performance,false,positive,other,yes,dashboard,dashboard,None
+SMOKE-004,"The webhook is failing with ERR-502. No fix yet.",negative,integration,true,negative,performance,no,None,webhook,ERR-502
+SMOKE-005,"Please send the updated receipt.",neutral,other,false,neutral,billing,no,None,None,None
+SMOKE-006,"Thanks for the update. I appreciate your efforts, but my account is still locked.",mixed,login_access,true,neutral,login_access,no,None,None,None
+SMOKE-007,"Everything is resolved. Thank you for the quick refund.",positive,billing,false,positive,billing,yes,None,None,None
+SMOKE-008,"Can you share the documentation for API notifications?",neutral,integration,false,neutral,integration,no,None,None,None
