@@ -47,3 +47,18 @@ with st.expander("Raw Cortex output (audit and review)"):
              "extraction": str(row["EXTRACTION_RAW"]),
              "issue_classification": str(row["ISSUE_CLASSIFICATION_RAW"])})
 st.caption("The synthetic gold labels are illustrative, not measured Cortex accuracy.")
+
+
+# Exploratory diagnostic only: this is a lexical *candidate* screen, not BIRD.
+# Operates on whole transcript fields, so speaker attribution is not guaranteed.
+import re
+st.subheader("Polite but potentially unresolved · exploratory screen")
+st.caption("Keyword-based candidates only—not verified dissatisfaction or Cortex/BIRD predictions. Full transcripts may include agent messages.")
+pattern_polite = r"(?i)\\b(thanks?|thank you|appreciate|please)\\b"
+pattern_unresolved = r"(?i)(still (?:not|cannot|fails?|does not work)|not (?:working|resolved|fixed)|no fix|issue is still open|cannot (?:sign in|access)|not appeared yet)"
+if not df.empty:
+    candidates = df[df["TRANSCRIPT"].str.contains(pattern_polite, regex=True, na=False) &
+                    df["TRANSCRIPT"].str.contains(pattern_unresolved, regex=True, na=False)]
+    st.metric("Candidate conversations", len(candidates))
+    st.dataframe(candidates[["CONVERSATION_ID", "GOLD_UNRESOLVED", "TRANSCRIPT"]],
+                 hide_index=True, use_container_width=True)
