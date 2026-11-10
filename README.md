@@ -1,98 +1,126 @@
+<div align="center">
+
 # ❄️ Snowflake Cortex Customer Intelligence
+### Beyond sentiment. Understand whether the customer's issue is actually resolved.
 
-An open-source reference implementation that turns **synthetic support conversations** into governed customer intelligence using Snowflake Cortex and Streamlit.
+**Snowflake-native SQL + Cortex AI + Streamlit in Snowflake**
 
-**Status (November 2026):** Live Snowflake trial execution and Streamlit dashboard operation were confirmed by the project owner using 8 smoke-test conversations, followed by 24-case and 200-case synthetic resolution experiments. Complete observed exports are archived below. Results have not been independently reproduced in another account. This independent educational project is not endorsed by Snowflake or Salesforce and contains no real customer data.
+[![Snowflake](https://img.shields.io/badge/Built%20with-Snowflake-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white)](https://www.snowflake.com/)
+[![Cortex](https://img.shields.io/badge/AI-Snowflake%20Cortex-0C4A6E?style=for-the-badge)](https://docs.snowflake.com/en/user-guide/snowflake-cortex/overview)
+[![Streamlit](https://img.shields.io/badge/Dashboard-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit)
+[![MIT](https://img.shields.io/badge/License-MIT-1f2937?style=for-the-badge)](LICENSE)
 
-## Capabilities
-- 90 synthetic support conversations with illustrative sentiment, issue and resolution labels
-- Snowflake SQL DDL, staged CSV ingestion, Cortex enrichment and read-only analytics views
-- `AI_SENTIMENT`, `AI_EXTRACT`, and `AI_CLASSIFY` in a bounded manual batch
-- Streamlit dashboard to explore issue trends, transcripts and audit-friendly raw AI outputs
-- Offline Python evaluation utilities, unit tests, CI and documentation
+An open-source reference implementation that classifies **resolution evidence** in support messages using **Snowflake Cortex `AI_CLASSIFY`** and explores the stored outputs in **Streamlit in Snowflake**.
 
-## Quick start
-**Local tests (no Snowflake account required):**
-```bash
-python -m pip install -e ".[dev]"
-python -m pytest -q
+[Explore the 200-case results](data/resolution_v3_observed.csv) · [Run the complete SQL](sql/09_resolution_v3_200_benchmark.sql) · [Open the dashboard source](streamlit_resolution_v3.py) · [Read the technical article](docs/article-beyond-sentiment.md)
+
+</div>
+
+---
+
+## The problem: polite ≠ resolved
+
+> **“Thanks for the update. I appreciate your efforts, but my account is still locked.”**
+
+Sentiment may be **neutral**; the issue is still unresolved. A customer can also dispute a ticket being marked resolved. Treating all those situations as simple positive or negative sentiment hides useful operational evidence.
+
+This project separates three concepts that are easy to conflate:
+
+| Dimension | What it tells you |
+|---|---|
+| **Sentiment polarity** | Positive, negative, neutral or other polarity captured from text |
+| **Expressed dissatisfaction** | Whether the customer expresses a complaint or dissatisfaction |
+| **Resolution evidence** | Whether the customer verifies a fix, reports continued failure, disputes a claimed fix, or provides insufficient evidence |
+
+**This repository's 200-case benchmark evaluates only the third concept: resolution evidence.** It does not measure dissatisfaction-classifier accuracy.
+
+## Snowflake architecture
+
+![Snowflake Cortex customer intelligence architecture](docs/images/snowflake-cortex-architecture.svg)
+
+Everything in the demonstrated inference and reporting pipeline ran **inside Snowflake**: SQL tables, `AI_CLASSIFY` inference, raw `VARIANT` response storage, views, and Streamlit in Snowflake. The app reads stored predictions, so **refreshing the dashboard does not rerun AI functions**.
+
+### The four resolution-evidence states
+
+| Label | Meaning | Typical evidence |
+|---|---|---|
+| `confirmed_resolved` | Customer confirms the solution works | “I tested it and the issue is fixed.” |
+| `reported_unresolved` | Problem persists; no explicit contradiction of a claimed completed fix | “It still fails after troubleshooting.” |
+| `disputed` | Customer contradicts a previous assertion of successful resolution | “The ticket says resolved, but the problem is still there.” |
+| `unknown` | No reliable current resolution evidence | “Please send the documentation.” |
+
+## Observed Snowflake trial results
+
+The project owner executed the pipeline in a **Snowflake trial account (November 2026)** and shared raw SQL results and screenshots of the running Streamlit dashboard.
+
+| Experiment | Task | Results | Why it matters |
+|---|---|---|---|
+| **8-case smoke test** | `AI_SENTIMENT`, `AI_EXTRACT`, `AI_CLASSIFY` | 8/8 enriched; sentiment reference agreement **6/8**; issue reference agreement **5/8** | Verifies the end-to-end ingestion and inference path |
+| **Resolution v2 · 24 cases** | Initial four-way `AI_CLASSIFY` | **20/24 (83.33%)** exact matches | Reveals ambiguity between reported unresolved and disputed states |
+| **Resolution v3 · 200 cases** | Refined four-way `AI_CLASSIFY` | **200/200 (100%)** exact matches | Confirms expected outcomes on a controlled synthetic template set |
+
+> [!IMPORTANT]
+> **The v3 result is not 100% real-world accuracy.** The 200 synthetic examples come from **20 authored sentence patterns across 10 product/feature contexts**. These are highly correlated examples with constructed reference labels, not 200 independently annotated real-world conversations. The v2 and v3 prompts **and datasets** differ, so the observed percentages cannot isolate a prompt improvement. Results have not been independently replicated in another Snowflake account.
+
+**Evidence:** [Complete 200-row observed Cortex predictions](data/resolution_v3_observed.csv) · [24-case observed predictions](data/resolution_v2_observed.csv) · [8-case results](data/cortex_smoke_observed.csv) · [Detailed results/limitations](docs/resolution-v3-observed-results.md)
+
+## Streamlit in Snowflake dashboard
+
+The live v3 dashboard shows **200 synthetic cases, 200 stored predictions, a per-class outcome chart, a four-category confusion matrix, and a searchable case-level explorer**. The images used for the demonstration come from the actual Snowsight session—not a generated mockup.
+
+**Dashboard Python source:** [`streamlit_resolution_v3.py`](streamlit_resolution_v3.py)
+
+**Screenshots:** The actual Snowsight captures are being packaged for the `docs/images/` folder. See [screenshot publishing checklist](docs/screenshot-publishing.md) for the exact two filenames and their intended placements. Do not substitute the earlier eight-case screenshot for this v3 benchmark.
+
+## Run it yourself in Snowflake
+
+The smallest path to reproduce the v3 resolution experiment:
+
+1. Use an authorized Snowflake account with **Cortex AI_CLASSIFY** access and a warehouse. The supplied script expects `CORTEX_CI_DEMO`, `APP`, and `CORTEX_CI_WH` to exist.
+2. Open [**`sql/09_resolution_v3_200_benchmark.sql`**](sql/09_resolution_v3_200_benchmark.sql) in Snowsight, review inference costs, and choose **Run All**. It creates the v3 tables, seeds 200 *synthetic* cases, runs the classification once per version+case, and creates `V_RESOLUTION_V3_COMPARISON`.
+3. Create a **Streamlit in Snowflake** app using [`streamlit_resolution_v3.py`](streamlit_resolution_v3.py), with read access to `CORTEX_CI_DEMO.APP.V_RESOLUTION_V3_COMPARISON`.
+4. Use the resulting dashboard to explore stored predictions; refreshing it does not trigger more Cortex inference.
+
+For the broader sentiment/entity/issue pipeline, start with [`docs/deployment-validation.md`](docs/deployment-validation.md). Snowflake Cortex calls may incur usage charges; API availability and role permissions depend on your account.
+
+### Explore the results without a Snowflake account
+
+The exact observed 200-row output is already available as a [downloadable CSV in this repository](data/resolution_v3_observed.csv). You can reproduce the exported metrics offline:
+
+```python
+import csv
+from collections import Counter
+
+with open("data/resolution_v3_observed.csv", newline="", encoding="utf-8") as f:
+    rows = list(csv.DictReader(f))
+
+print("Cases:", len(rows))
+print("Predictions:", sum(bool(r["CORTEX_RESOLUTION"]) for r in rows))
+print("Exact matches:", sum(r["GOLD_RESOLUTION"] == r["CORTEX_RESOLUTION"] for r in rows))
+print("Class balance:", Counter(r["GOLD_RESOLUTION"] for r in rows))
 ```
 
-**Snowflake demonstration (warehouse and inference charges may apply):**
-1. Run `sql/00_setup.sql` using an authorized setup role.
-2. Stage `data/conversations.csv` using SnowSQL or Snowflake CLI:
-```sql
-USE DATABASE CORTEX_CI_DEMO;
-USE SCHEMA APP;
-PUT file://./data/conversations.csv @%CONVERSATIONS AUTO_COMPRESS=FALSE OVERWRITE=TRUE;
-```
-3. Run `sql/01_load.sql`; check `sql/04_validation.sql`.
-4. Review Cortex permissions and inference costs; run `sql/02_enrich.sql` (capped at 25 records).
-5. Run `sql/03_views.sql`, then deploy `streamlit_app.py` as Streamlit in Snowflake, with dependency and warehouse settings configured for your account.
+More details: [Reproducibility and results](docs/reproducibility-and-results.md).
 
-Snowsight worksheets generally cannot upload local files using PUT; use an appropriate CLI or the Snowsight file loading interface. Cortex function access depends on account privileges, region and current function availability.
+## Repository contents
 
-## Repository map
-- `data/`: synthetic evaluation dataset
-- `sql/`: setup, ingestion, enrichment, analytical views and validation
-- `src/customer_intelligence/`: offline evaluation routines
-- `tests/`: unit tests
-- `docs/`: architecture, evaluation, security, publication roadmap
-- `streamlit_app.py`: dashboard
-- `snowflake.yml`: optional Snowflake CLI deployment manifest
-- `.github/workflows/ci.yml`: tests and lint
+| Path | Purpose |
+|---|---|
+| [`sql/09_resolution_v3_200_benchmark.sql`](sql/09_resolution_v3_200_benchmark.sql) | One-file v3 SQL: seed, classify, compare, export |
+| [`streamlit_resolution_v3.py`](streamlit_resolution_v3.py) | Live Streamlit 200-case dashboard |
+| [`data/resolution_v3_observed.csv`](data/resolution_v3_observed.csv) | **Actual observed** 200-case Cortex predictions |
+| [`docs/resolution-v3-observed-results.md`](docs/resolution-v3-observed-results.md) | Results, confusion matrix, limitations |
+| [`docs/article-beyond-sentiment.md`](docs/article-beyond-sentiment.md) | Community-ready technical article draft |
+| [`streamlit_app.py`](streamlit_app.py) and [`sql/00_setup.sql`](sql/00_setup.sql) | Original sentiment/entity/issue enrichment demo |
+| [`docs/architecture.md`](docs/architecture.md) | Data flow and design principles |
+| [`docs/security.md`](docs/security.md) | Responsible-use and data protection checklist |
 
-## Responsible use
-Do not point this demo at private support transcripts without company approval, PII handling, security review and a retention policy. AI sentiment does not establish actual customer satisfaction, and polite closings can hide unresolved problems. The synthetic labels are illustrative, not measured model accuracy.
+## Security, scope, and attribution
 
-See [architecture](docs/architecture.md), [evaluation](docs/evaluation.md), [security](docs/security.md), and [publishing plan](docs/publishing-plan.md).
+- **Synthetic data only.** No real customer or employer support transcripts are included.
+- For a real deployment: authorization, PII redaction, access controls, retention, cost monitoring, and human review are essential.
+- This is an **independent educational reference project**. It is not affiliated with or endorsed by Snowflake or Salesforce.
+- The related [BIRD-inspired extension](docs/bird-extension.md) is a transparent illustrative rules baseline, **not** the trained BIRD-lite model from the separate research manuscript.
+- MIT licensed. Contributions, reproducibility feedback, and carefully labeled synthetic challenge cases are welcome.
 
-## Official references
-- [AI_SENTIMENT](https://docs.snowflake.com/en/sql-reference/functions/ai_sentiment)
-- [AI_EXTRACT](https://docs.snowflake.com/en/sql-reference/functions/ai_extract)
-- [AI_CLASSIFY](https://docs.snowflake.com/en/sql-reference/functions/ai_classify)
-
-MIT licensed.
-
-## BIRD-inspired behavior-aware extension
-
-The new [BIRD research extension](docs/bird-extension.md) provides a transparent, **illustrative keyword baseline** separating courtesy, dissatisfaction and resolution evidence. It is **not** the trained BIRD-lite model described in the independently submitted manuscript. The synthetic 90-row demo dataset differs from the 90 public-corpus dialogue prefixes in that study, and there are no measured Cortex-vs-BIRD results yet. See `src/customer_intelligence/behavioral.py` and `tests/test_behavioral.py`.
-
-### Comparing predictions after actual execution
-
-After obtaining independently reviewed reference labels and **actual** Cortex inference outputs, create a CSV with columns `case_id,gold_dissatisfaction,rule_prediction,cortex_prediction` and run:
-
-```bash
-python -m pip install -e ".[dev]"
-python scripts/compare_predictions.py your_predictions.csv
-```
-
-The comparison runner reports evaluated counts, coverage and binary precision/recall/F1; a blank Cortex prediction represents an abstention/unavailable result. **Cortex sentiment polarity is not the same variable as expressed dissatisfaction**—do not fill `cortex_prediction` by automatically treating positive sentiment as `no_evidence`. First define and document a separate dissatisfaction classifier or mapping and validate it. The v2/v3 experiments below evaluate **resolution evidence**, not dissatisfaction.
-
-## Run a Snowflake smoke test without installing a CLI
-
-The shortest path is the new [Snowsight deployment guide](docs/deployment-validation.md). After `sql/00_setup.sql`, execute `sql/01_quickstart_seed.sql` to insert **8 synthetic scenarios** without any file upload, then `sql/00_preflight.sql` to verify AI function access and response shapes. With permissions and cost approval, run `sql/02_enrich.sql`, `sql/03_views.sql` and `sql/06_runtime_checks.sql`. Finally create Streamlit in Snowsight using `streamlit_app.py`. These steps were successfully exercised in a Snowflake trial account by the project owner in November 2026. Schema permissions, availability, and charges may differ in another account.
-
-**Current validation status:** Python evaluation tests passed locally (remote GitHub CI not independently verified). The project owner supplied live Snowflake Cortex outputs from an 8-case smoke test and two versioned resolution experiments, and shared a running Streamlit screenshot. AI calls incur inference charges.
-
-## Actual Snowflake trial results (November 2026)
-
-The project owner ran the following experiments and supplied the resulting Snowflake exports:
-
-| Experiment | Task | Exact reference-label matches | What it establishes |
-|---|---|---:|---|
-| [8-case smoke test](docs/observed-smoke-results.md) | Sentiment + issue type | Sentiment **6/8**, issue **5/8** | Pipeline and data-path functionality; several instructive mismatches |
-| [Resolution v2, 24 cases](docs/resolution-v2-observed-results.md) | Four-class resolution evidence | **20/24 (83.33%)** | Errors distinguishing ongoing issues from disputed resolutions |
-| [Resolution v3, 200 cases](docs/resolution-v3-observed-results.md) | Four-class resolution evidence | **200/200 (100%)** | Successful classification on deliberately simple template-driven synthetic examples |
-
-**Source artifacts:** [8-case observations](data/cortex_smoke_observed.csv) · [24-case observed predictions](data/resolution_v2_observed.csv) · [200-case complete observed predictions](data/resolution_v3_observed.csv) · [v3 one-file SQL](sql/09_resolution_v3_200_benchmark.sql) · [publication draft](docs/article-beyond-sentiment.md).
-
-**Important:** The 200 v3 examples are generated using **20 authored sentence patterns across 10 product contexts**, with **50 examples per class**. They are not 200 independently sampled customer conversations. Prompts and examples changed between v2 and v3, so their percentages cannot isolate a prompt improvement. Synthetic reference labels are not independent human annotations. These metrics are not estimates of real-world performance, and they do not measure the BIRD dissatisfaction classifier from the separate research manuscript.
-
-## Offline access after a Snowflake trial ends
-
-The source SQL, sampled synthetic data, and actual observed prediction files remain accessible in this repository. To repeat inference, you'll need a Snowflake account with Cortex access and appropriate costs/roles; to **inspect existing results**, no Snowflake account is required. Review the [reproducibility and results guide](docs/reproducibility-and-results.md) before citing benchmark numbers.
-
-## How to contribute
-
-Issues and pull requests that improve category definitions, create more naturally diverse labeled evaluation cases, check portability across Snowflake accounts, or improve privacy safeguards are welcome. Please label synthetic vs real data clearly and never post private customer transcripts or credentials.
+<sub>Observed live run: November 9, 2026 · Last refreshed for public documentation: November 2026</sub>
