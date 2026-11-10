@@ -2,7 +2,7 @@
 
 An open-source reference implementation that turns **synthetic support conversations** into governed customer intelligence using Snowflake Cortex and Streamlit.
 
-**Status:** Reference implementation; live Snowflake Cortex inference and dashboard deployment are not yet verified. Not endorsed by Snowflake or Salesforce. No Salesforce or real customer data included.
+**Status (November 2026):** Live Snowflake trial execution and Streamlit dashboard operation were confirmed by the project owner using 8 smoke-test conversations, followed by 24-case and 200-case synthetic resolution experiments. Complete observed exports are archived below. Results have not been independently reproduced in another account. This independent educational project is not endorsed by Snowflake or Salesforce and contains no real customer data.
 
 ## Capabilities
 - 90 synthetic support conversations with illustrative sentiment, issue and resolution labels
@@ -67,10 +67,32 @@ python -m pip install -e ".[dev]"
 python scripts/compare_predictions.py your_predictions.csv
 ```
 
-The comparison runner reports evaluated counts, coverage and binary precision/recall/F1; a blank Cortex prediction represents an abstention/unavailable result. **Cortex sentiment polarity is not the same variable as expressed dissatisfaction**—do not fill `cortex_prediction` by automatically treating positive sentiment as `no_evidence`. First define and document a separate dissatisfaction classifier or mapping and validate it. There are no precomputed Cortex benchmark results in this repository.
+The comparison runner reports evaluated counts, coverage and binary precision/recall/F1; a blank Cortex prediction represents an abstention/unavailable result. **Cortex sentiment polarity is not the same variable as expressed dissatisfaction**—do not fill `cortex_prediction` by automatically treating positive sentiment as `no_evidence`. First define and document a separate dissatisfaction classifier or mapping and validate it. The v2/v3 experiments below evaluate **resolution evidence**, not dissatisfaction.
 
 ## Run a Snowflake smoke test without installing a CLI
 
-The shortest path is the new [Snowsight deployment guide](docs/deployment-validation.md). After `sql/00_setup.sql`, execute `sql/01_quickstart_seed.sql` to insert **8 synthetic scenarios** without any file upload, then `sql/00_preflight.sql` to verify AI function access and response shapes. With permissions and cost approval, run `sql/02_enrich.sql`, `sql/03_views.sql` and `sql/06_runtime_checks.sql`. Finally create Streamlit in Snowsight using `streamlit_app.py`. These steps require access to your Snowflake account and are not yet live-verified.
+The shortest path is the new [Snowsight deployment guide](docs/deployment-validation.md). After `sql/00_setup.sql`, execute `sql/01_quickstart_seed.sql` to insert **8 synthetic scenarios** without any file upload, then `sql/00_preflight.sql` to verify AI function access and response shapes. With permissions and cost approval, run `sql/02_enrich.sql`, `sql/03_views.sql` and `sql/06_runtime_checks.sql`. Finally create Streamlit in Snowsight using `streamlit_app.py`. These steps were successfully exercised in a Snowflake trial account by the project owner in November 2026. Schema permissions, availability, and charges may differ in another account.
 
-**Current validation status:** Python evaluation tests passed locally; remote GitHub CI and end-to-end Snowflake inference remain to be confirmed. The AI preflight and enrichment incur inference charges.
+**Current validation status:** Python evaluation tests passed locally (remote GitHub CI not independently verified). The project owner supplied live Snowflake Cortex outputs from an 8-case smoke test and two versioned resolution experiments, and shared a running Streamlit screenshot. AI calls incur inference charges.
+
+## Actual Snowflake trial results (November 2026)
+
+The project owner ran the following experiments and supplied the resulting Snowflake exports:
+
+| Experiment | Task | Exact reference-label matches | What it establishes |
+|---|---|---:|---|
+| [8-case smoke test](docs/observed-smoke-results.md) | Sentiment + issue type | Sentiment **6/8**, issue **5/8** | Pipeline and data-path functionality; several instructive mismatches |
+| [Resolution v2, 24 cases](docs/resolution-v2-observed-results.md) | Four-class resolution evidence | **20/24 (83.33%)** | Errors distinguishing ongoing issues from disputed resolutions |
+| [Resolution v3, 200 cases](docs/resolution-v3-observed-results.md) | Four-class resolution evidence | **200/200 (100%)** | Successful classification on deliberately simple template-driven synthetic examples |
+
+**Source artifacts:** [8-case observations](data/cortex_smoke_observed.csv) · [24-case observed predictions](data/resolution_v2_observed.csv) · [200-case complete observed predictions](data/resolution_v3_observed.csv) · [v3 one-file SQL](sql/09_resolution_v3_200_benchmark.sql) · [publication draft](docs/article-beyond-sentiment.md).
+
+**Important:** The 200 v3 examples are generated using **20 authored sentence patterns across 10 product contexts**, with **50 examples per class**. They are not 200 independently sampled customer conversations. Prompts and examples changed between v2 and v3, so their percentages cannot isolate a prompt improvement. Synthetic reference labels are not independent human annotations. These metrics are not estimates of real-world performance, and they do not measure the BIRD dissatisfaction classifier from the separate research manuscript.
+
+## Offline access after a Snowflake trial ends
+
+The source SQL, sampled synthetic data, and actual observed prediction files remain accessible in this repository. To repeat inference, you'll need a Snowflake account with Cortex access and appropriate costs/roles; to **inspect existing results**, no Snowflake account is required. Review the [reproducibility and results guide](docs/reproducibility-and-results.md) before citing benchmark numbers.
+
+## How to contribute
+
+Issues and pull requests that improve category definitions, create more naturally diverse labeled evaluation cases, check portability across Snowflake accounts, or improve privacy safeguards are welcome. Please label synthetic vs real data clearly and never post private customer transcripts or credentials.
