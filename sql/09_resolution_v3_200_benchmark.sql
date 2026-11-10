@@ -259,7 +259,7 @@ SELECT c.CASE_ID, 'resolution-v3.0', CURRENT_TIMESTAMP(),
           {'label':'reported_unresolved',
            'description':'The customer reports the problem is ongoing or an attempted fix failed, without explicitly contradicting a previous declaration that it was resolved.'},
           {'label':'disputed',
-           'description':'The customer explicitly challenges another actor\'s statement or ticket status asserting the issue is resolved, completed, or fixed.'},
+           'description':'The customer explicitly challenges another actor''s statement or ticket status asserting the issue is resolved, completed, or fixed.'},
           {'label':'unknown',
            'description':'There is insufficient evidence about current resolution status: a procedural question, a future promise, a documentation request or a polite closing is not proof of a working fix or ongoing failure.'}
          ],
