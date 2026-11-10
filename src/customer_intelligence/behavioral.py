@@ -1,20 +1,20 @@
 """Transparent illustrative rules; NOT a reproduction of trained BIRD-lite."""
 import re
 
-COURTESY = re.compile(r"\b(thank(?:s| you)?|appreciate|please)\b", re.I)
+COURTESY = re.compile(r"\b(thank(?:s| you)?|appreciate|please)\b", re.IGNORECASE)
 UNRESOLVED = re.compile(
     r"\b(still (?:not|cannot|can't|fails?|broken|does not work|doesn't work)"
     r"|not (?:resolved|working|fixed)|no fix|has not|have not"
     r"|keeps? fail(?:ing)?|cannot (?:sign in|access|log in)"
-    r"|issue is still open|not appeared yet)\b", re.I
+    r"|issue is still open|not appeared yet)\b", re.IGNORECASE
 )
 RESOLVED = re.compile(
     r"\b(?:now works?|working (?:well|now)|is resolved|issue (?:was|is) resolved"
-    r"|can (?:sign|log) in now|was repaired|fixed it)\b", re.I
+    r"|can (?:sign|log) in now|was repaired|fixed it)\b", re.IGNORECASE
 )
 COMPLAINT = re.compile(
     r"\b(?:error|fail(?:s|ed|ing)?|duplicate charge|frustrat(?:ed|ing)"
-    r"|terrible|not happy|disput(?:e|ed)|escalat(?:e|ion))\b", re.I
+    r"|terrible|not happy|disput(?:e|ed)|escalat(?:e|ion))\b", re.IGNORECASE
 )
 
 
@@ -55,5 +55,5 @@ def score_binary(gold: list[str], predicted: list[str], positive="yes") -> dict:
     precision = tp / (tp + fp) if tp + fp else 0.0
     recall = tp / (tp + fn) if tp + fn else 0.0
     f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
-    return dict(n=len(gold), tp=tp, fp=fp, fn=fn, tn=tn,
-                precision=precision, recall=recall, f1=f1)
+    return {"n": len(gold), "tp": tp, "fp": fp, "fn": fn, "tn": tn,
+            "precision": precision, "recall": recall, "f1": f1}
