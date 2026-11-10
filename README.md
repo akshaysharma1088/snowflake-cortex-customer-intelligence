@@ -20,6 +20,12 @@ An open-source reference implementation that classifies **resolution evidence** 
 
 ---
 
+## 90-second implementation presentation
+
+[▶ **Watch the 90-second Snowflake Cortex implementation presentation**](Snowflake_Cortex_90s_Presentation_NEW.mp4)
+
+A concise, **silent, presentation-style** walkthrough of the Snowflake-native architecture, Cortex classification, stored predictions, evaluation, and real Streamlit dashboard. The video contains no narration or background music.
+
 ## The problem: polite ≠ resolved
 
 > **“Thanks for the update. I appreciate your efforts, but my account is still locked.”**
