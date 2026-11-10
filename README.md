@@ -68,3 +68,9 @@ python scripts/compare_predictions.py your_predictions.csv
 ```
 
 The comparison runner reports evaluated counts, coverage and binary precision/recall/F1; a blank Cortex prediction represents an abstention/unavailable result. **Cortex sentiment polarity is not the same variable as expressed dissatisfaction**—do not fill `cortex_prediction` by automatically treating positive sentiment as `no_evidence`. First define and document a separate dissatisfaction classifier or mapping and validate it. There are no precomputed Cortex benchmark results in this repository.
+
+## Run a Snowflake smoke test without installing a CLI
+
+The shortest path is the new [Snowsight deployment guide](docs/deployment-validation.md). After `sql/00_setup.sql`, execute `sql/01_quickstart_seed.sql` to insert **8 synthetic scenarios** without any file upload, then `sql/00_preflight.sql` to verify AI function access and response shapes. With permissions and cost approval, run `sql/02_enrich.sql`, `sql/03_views.sql` and `sql/06_runtime_checks.sql`. Finally create Streamlit in Snowsight using `streamlit_app.py`. These steps require access to your Snowflake account and are not yet live-verified.
+
+**Current validation status:** Python evaluation tests passed locally; remote GitHub CI and end-to-end Snowflake inference remain to be confirmed. The AI preflight and enrichment incur inference charges.
