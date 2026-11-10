@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="510" viewBox="0 0 1280 510" role="img" aria-label="Snowflake Cortex Resolution Intelligence - Snowflake-native customer support analysis">
+<defs><linearGradient id="b" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#031528"/><stop offset="1" stop-color="#12567e"/></linearGradient><radialGradient id="glow"><stop stop-color="#29b5e8" stop-opacity=".32"/><stop offset="1" stop-color="#29b5e8" stop-opacity="0"/></radialGradient></defs>
+<rect width="1280" height="510" rx="25" fill="url(#b)"/>
+<circle cx="1060" cy="50" r="360" fill="url(#glow)"/><circle cx="1090" cy="420" r="230" fill="url(#glow)"/>
+<g fill="none" stroke="#40c7f8" stroke-width="3" opacity=".55"><circle cx="1055" cy="244" r="150"/><circle cx="1055" cy="244" r="105"/><path d="M905 244 H1205 M1055 94 V394 M946 135 L1165 354 M946 354 L1165 135"/></g>
+<g font-family="Arial,Helvetica,sans-serif">
+<rect x="66" y="60" width="218" height="38" rx="19" fill="#0b567b" stroke="#37bee9" stroke-opacity=".5"/><text x="175" y="85" font-weight="700" font-size="15" letter-spacing="1" text-anchor="middle" fill="#c9f5ff">BUILT IN SNOWFLAKE</text>
+<text x="66" y="158" fill="#ffffff" font-size="49" font-weight="700">Cortex Customer</text>
+<text x="66" y="216" fill="#ffffff" font-size="49" font-weight="700">Intelligence</text>
+<text x="69" y="261" fill="#bce9fb" font-size="22">Beyond sentiment. Measure resolution evidence.</text>
+<rect x="69" y="312" width="193" height="104" rx="16" fill="#d8f4ff"/><text x="91" y="357" font-weight="700" font-size="37" fill="#0c4a6e">200</text><text x="91" y="387" font-size="15" fill="#255c76">Synthetic cases</text>
+<rect x="281" y="312" width="208" height="104" rx="16" fill="#d8f4ff"/><text x="303" y="357" font-weight="700" font-size="37" fill="#0c4a6e">4</text><text x="303" y="387" font-size="15" fill="#255c76">Resolution states</text>
+<rect x="508" y="312" width="267" height="104" rx="16" fill="#d8f4ff"/><text x="530" y="357" font-weight="700" font-size="37" fill="#0c4a6e">200/200</text><text x="530" y="387" font-size="15" fill="#255c76">Observed template matches</text>
+<text x="69" y="464" fill="#a8d0e2" font-size="15">Snowflake SQL    /    Cortex AI_CLASSIFY    /    Streamlit in Snowflake</text>
+<text x="1180" y="454" fill="#b9e8fa" font-size="15" text-anchor="end">SYNTHETIC DEMO</text></g></svg>
