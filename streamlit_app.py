@@ -54,7 +54,7 @@ st.caption("The synthetic gold labels are illustrative, not measured Cortex accu
 import re
 st.subheader("Polite but potentially unresolved · exploratory screen")
 st.caption("Keyword-based candidates only—not verified dissatisfaction or Cortex/BIRD predictions. Full transcripts may include agent messages.")
-pattern_polite = r"(?i)\\b(thanks?|thank you|appreciate|please)\\b"
+pattern_polite = r"(?i)\b(thanks?|thank you|appreciate|please)\b"
 pattern_unresolved = r"(?i)(still (?:not|cannot|fails?|does not work)|not (?:working|resolved|fixed)|no fix|issue is still open|cannot (?:sign in|access)|not appeared yet)"
 if not df.empty:
     candidates = df[df["TRANSCRIPT"].str.contains(pattern_polite, regex=True, na=False) &
