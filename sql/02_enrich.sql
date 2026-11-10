@@ -2,7 +2,7 @@
 -- Validate AI function availability, role privileges, and output shapes in your region.
 USE DATABASE CORTEX_CI_DEMO;
 USE SCHEMA APP;
-SET run_id = UUID_STRING();
+SET run_id = 'smoke-test-001'; -- constant assignment; replace with a unique literal for each manual run
 SET enrich_version = 'v1';
 INSERT INTO ENRICHED_CONVERSATIONS
  (CONVERSATION_ID, ENRICHMENT_VERSION, RUN_ID, ENRICHED_AT,
