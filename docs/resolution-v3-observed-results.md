@@ -1,6 +1,6 @@
 # Resolution v3.0: observed trial summary — November 9, 2026
 
-**Source:** Results reported by the project owner from the Snowflake trial account using `sql/09_resolution_v3_200_benchmark.sql`. This summary was not independently verified through a Snowflake connector; the full per-case export remains to be archived.
+**Source:** Results reported by the project owner from the Snowflake trial account using `sql/09_resolution_v3_200_benchmark.sql`. This summary was not independently verified through a Snowflake connector; the complete [200-case observed export](../data/resolution_v3_observed.csv) is archived. It has been checked for 200 unique case IDs, 50 examples per reference class, raw-output label consistency and 200 exact reference-label matches.
 
 ## Overall results
 | Metric | User-reported result |
