@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-label="Snowflake Cortex customer intelligence pipeline architecture">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061a31"/><stop offset="1" stop-color="#103d5a"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity=".2"/></filter></defs>
+<rect width="1200" height="420" rx="24" fill="url(#bg)"/>
+<text x="58" y="65" fill="#64d7ff" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="2">SNOWFLAKE-NATIVE ARCHITECTURE</text>
+<text x="58" y="106" fill="#ffffff" font-family="Arial,sans-serif" font-size="31" font-weight="700">From support dialogue to resolution evidence</text>
+<text x="58" y="136" fill="#a8c9dc" font-family="Arial,sans-serif" font-size="16">Versioned inference · preserved raw outputs · read-only analytical dashboard</text>
+<g font-family="Arial,sans-serif" text-anchor="middle" filter="url(#shadow)">
+<rect x="55" y="192" width="226" height="145" rx="16" fill="#e8f7fc"/>
+<text x="168" y="230" fill="#0d4a6a" font-size="17" font-weight="700">Synthetic transcripts</text>
+<text x="168" y="260" fill="#255e7d" font-size="14">Snowflake APP tables</text>
+<text x="168" y="289" fill="#255e7d" font-size="14">8 → 24 → 200 cases</text>
+<rect x="343" y="192" width="231" height="145" rx="16" fill="#c9f0fd"/>
+<text x="459" y="227" fill="#0d4a6a" font-size="17" font-weight="700">Cortex SQL AI</text>
+<text x="459" y="256" fill="#255e7d" font-size="14">AI_SENTIMENT</text>
+<text x="459" y="280" fill="#255e7d" font-size="14">AI_EXTRACT</text>
+<text x="459" y="304" fill="#255e7d" font-size="14">AI_CLASSIFY</text>
+<rect x="636" y="192" width="230" height="145" rx="16" fill="#e8f7fc"/>
+<text x="751" y="230" fill="#0d4a6a" font-size="17" font-weight="700">Versioned results</text>
+<text x="751" y="260" fill="#255e7d" font-size="14">Raw VARIANT response</text>
+<text x="751" y="289" fill="#255e7d" font-size="14">Comparison SQL view</text>
+<rect x="928" y="192" width="217" height="145" rx="16" fill="#c9f0fd"/>
+<text x="1037" y="230" fill="#0d4a6a" font-size="17" font-weight="700">Streamlit</text>
+<text x="1037" y="260" fill="#255e7d" font-size="14">KPI + confusion matrix</text>
+<text x="1037" y="289" fill="#255e7d" font-size="14">Case-level exploration</text>
+</g>
+<g stroke="#5bcaeb" stroke-width="4" stroke-linecap="round" fill="none">
+<path d="M289 263 H329"/><path d="M317 251 L329 263 L317 275"/>
+<path d="M582 263 H622"/><path d="M610 251 L622 263 L610 275"/>
+<path d="M874 263 H914"/><path d="M902 251 L914 263 L902 275"/>
+</g>
+<text x="59" y="376" fill="#b9d9e9" font-family="Arial,sans-serif" font-size="13">DEMO DATA ONLY · Inference runs in SQL, not on dashboard refresh · AI outputs require human evaluation</text>
+</svg>
