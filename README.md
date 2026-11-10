@@ -20,6 +20,16 @@ An open-source reference implementation that classifies **resolution evidence** 
 
 ---
 
+## 90-second implementation presentation
+
+A concise, voice-free presentation covers the Snowflake-native architecture, Cortex classification, persisted predictions, evaluation, and the real Streamlit dashboard. The soundtrack is intentionally omitted.
+
+<!-- Uncomment once docs/video/snowflake-cortex-presentation-90s.mp4 is uploaded to this branch:
+[▶ Watch the 90-second implementation presentation](docs/video/snowflake-cortex-presentation-90s.mp4)
+-->
+
+**Video upload pending:** Save the 90-second silent MP4 to `docs/video/snowflake-cortex-presentation-90s.mp4` on this PR branch, then enable the link above. This is a presentation-style walkthrough, not a recording of an interactive live implementation.
+
 ## The problem: polite ≠ resolved
 
 > **“Thanks for the update. I appreciate your efforts, but my account is still locked.”**
