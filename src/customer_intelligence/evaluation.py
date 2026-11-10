@@ -1,5 +1,6 @@
 """Pure Python evaluation utilities: no Snowflake account required."""
 import json
+
 ALLOWED_SENTIMENTS = {"positive", "negative", "neutral", "mixed", "unknown"}
 def normalize_sentiment(value):
     if not isinstance(value, str):
