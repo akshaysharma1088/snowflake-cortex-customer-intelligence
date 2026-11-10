@@ -6,6 +6,7 @@ from customer_intelligence.evaluation import (
     normalize_sentiment,
 )
 
+
 def test_normalize_sentiment():
     assert normalize_sentiment(" Negative ") == "negative"
     assert normalize_sentiment("surprised") == "unknown"
