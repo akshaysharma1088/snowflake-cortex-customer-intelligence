@@ -29,7 +29,7 @@ V2: 20/24 (83.33%) on a different set of constructed examples; V3: 200/200 with 
 This is **not** evidence of 100% natural-language understanding, real-world precision, or research superiority. The reference labels were assigned as part of generation rather than independently annotated, and the task is resolution evidence, not dissatisfaction or sentiment.
 
 ## Practical next steps before trial expiry
-1. Download the full `SELECT * FROM V_RESOLUTION_V3_COMPARISON ORDER BY CASE_ID` result to CSV, retaining `RESOLUTION_RAW`, `RUN_AT`, and other provenance.
+1. **Completed:** the full `V_RESOLUTION_V3_COMPARISON` output was supplied by the project owner and archived as [`data/resolution_v3_observed.csv`](../data/resolution_v3_observed.csv), retaining `RESOLUTION_RAW` and `RUN_AT`.
 2. Archive the query IDs / query history and available inference cost or credit usage metadata.
 3. Build a disjoint, natural-language-style challenge set with contrastive minimal pairs, ambiguous agent promises, partial resolutions, polite ongoing complaints, negation and multi-turn snippets, and preregister labels before running Cortex.
 4. Include both v2 and v3 honestly in the project report and avoid extrapolating the observed rates.
