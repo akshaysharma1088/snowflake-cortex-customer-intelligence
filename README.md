@@ -9,10 +9,11 @@
 [![Cortex](https://img.shields.io/badge/AI-Snowflake%20Cortex-0C4A6E?style=for-the-badge)](https://docs.snowflake.com/en/user-guide/snowflake-cortex/overview)
 [![Streamlit](https://img.shields.io/badge/Dashboard-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit)
 [![MIT](https://img.shields.io/badge/License-MIT-1f2937?style=for-the-badge)](LICENSE)
+[![Zenodo DOI](https://img.shields.io/badge/Zenodo-10.5281%2Fzenodo.24098765-1682D4?style=for-the-badge)](https://doi.org/10.5281/zenodo.24098765)
 
 An open-source reference implementation that classifies **resolution evidence** in support messages using **Snowflake Cortex `AI_CLASSIFY`** and explores the stored outputs in **Streamlit in Snowflake**.
 
-[Explore the 200-case results](data/resolution_v3_observed.csv) · [Run the complete SQL](sql/09_resolution_v3_200_benchmark.sql) · [Open the dashboard source](streamlit_resolution_v3.py) · [Read the technical article](docs/article-beyond-sentiment.md)
+[Explore the 200-case results](data/resolution_v3_observed.csv) · [Run the complete SQL](sql/09_resolution_v3_200_benchmark.sql) · [Open the dashboard source](streamlit_resolution_v3.py) · [Read the technical article](docs/article-beyond-sentiment.md) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24098765)
 
 </div>
 
