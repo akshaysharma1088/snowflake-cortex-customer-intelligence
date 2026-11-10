@@ -16,6 +16,8 @@ An open-source reference implementation that classifies **resolution evidence** 
 
 </div>
 
+![Snowflake Cortex Customer Intelligence — project overview](docs/images/snowflake-cortex-hero.svg)
+
 ---
 
 ## The problem: polite ≠ resolved
