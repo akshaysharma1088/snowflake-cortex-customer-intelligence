@@ -72,7 +72,7 @@ The live v3 dashboard shows **200 synthetic cases, 200 stored predictions, a per
 
 **Dashboard Python source:** [`streamlit_resolution_v3.py`](streamlit_resolution_v3.py)
 
-**Actual Snowsight screenshots:** Two captures from the live **200-case v3** Streamlit dashboard are prepared for upload to `docs/images/`. The code block below is intentionally commented until the PNGs are committed to this PR, preventing broken images on the public README. See [screenshot publishing instructions](docs/screenshot-publishing.md).
+**Actual Snowsight screenshots:** These are captures of the live **200-case v3** Streamlit in Snowflake dashboard, now committed under [`docs/images/`](docs/images/). They show the running analytical dashboard and its case-level explorer.
 
 ### 200-case dashboard overview
 
